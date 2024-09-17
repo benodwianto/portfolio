@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="css/style.css">
     <style>
+        
         * {
             font-family: 'Poppins', sans-serif;
+            border: 1px solid red;
         }
         /* Animasi untuk teks berjalan horizontal */
         @keyframes runningText {
@@ -237,88 +239,90 @@
     </div>
 </div>
 
+<!-- stack -->
+    <div class="container relative px-52 mx-auto py-16" id="stack">
+        <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Stack</span></h2>
+        
+        <!-- Background image (placed behind the stack logos) -->
+        <div class="absolute inset-0 z-0 flex justify-center items-center opacity-90 mt-32 glass-effect blur-sm ml-0">
+            <img src="img/peoplework.png" width="900px" alt="Background Image" class="object-cover flex mx-auto">
+        </div>
 
-<div class="container relative mx-auto py-16" id="stack">
-    <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Stack</span></h2>
-    
-    <!-- Background image (placed behind the stack logos) -->
-    <div class="absolute inset-0 z-0 flex justify-center items-center opacity-90 mt-32 glass-effect blur-sm ml-0">
-        <img src="img/peoplework.png" width="900px" alt="Background Image" class="object-cover flex mx-auto">
+        <!-- Grid of stack logos -->
+        <div class="flex justify-center">
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 ">
+                <!-- Kolom 1 -->
+                <div class="" data-aos="zoom-in">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/html.png" alt="HTML5 Logo" class="mt-20 w-32 h-32">
+                        <span class="text-3xl font-xl text-slate-700 mt-4">HTML5</span>
+                    </div>
+                </div>
+        
+                <!-- Kolom 2 -->
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/css.png" alt="CSS3 Logo" class="w-32 h-32 mt-16">
+                        <span class="text-3xl font-lg text-slate-700 mt-9">CSS3</span>
+                    </div>
+                </div>
+        
+                <!-- Kolom 3 -->
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/js.png" alt="JavaScript Logo" class="w-36 h-36 mt-16">
+                        <span class="text-3xl mt-4 text-slate-700">JavaScript</span>
+                    </div>
+                </div>
+        
+                <!-- Kolom 4 -->
+                <div class="space-y-8" data-aos="zoom-in">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/php.png" alt="PHP Logo" class="w-33 h-32 mt-20">
+                        <span class="text-3xl text-slate-700 mt-9">PHP</span>
+                    </div>
+                </div>
+        
+                <!-- Kolom 5 -->
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/laravel.png" alt="Laravel Logo" class="w-43 h-42 mt-7">
+                        <span class="text-3xl text-slate-700 mt-1">Laravel</span>
+                    </div>
+                </div>
+        
+                <!-- Kolom 6 -->
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/mysql.png" alt="MySQL Logo" class="w-36 h-32 mt-10">
+                        <span class="text-3xl text-slate-700 mt-9">MySQL</span>
+                    </div>
+                </div>
+        
+                <!-- Additional logos -->
+                <div class="space-y-8" data-aos="zoom-in">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/chagpt.png" alt="ChatGPT Logo" class="w-32 h-32 mt-16">
+                        <span class="text-3xl text-slate-700 mt-9">ChatGPT</span>
+                    </div>
+                </div>
+        
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/tailwind.png" alt="Tailwind CSS Logo" class="w-32 h-30 mt-20">
+                        <span class="text-3xl text-slate-700 mt-16">Tailwind CSS</span>
+                    </div>
+                </div>
+        
+                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+                        <img src="img/bootstrap.png" alt="Bootstrap Logo" class="w-33 h-32 mt-16">
+                        <span class="text-3xl text-slate-700 mt-9">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Grid of stack logos -->
-    <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 gap-x-12 justify-items-center">
-        <!-- Kolom 1 -->
-        <div class="space-y-8" data-aos="zoom-in">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/html.png" alt="HTML5 Logo" class="mt-20 w-32 h-32">
-                <span class="text-3xl font-xl text-slate-700 mt-4">HTML5</span>
-            </div>
-        </div>
-
-        <!-- Kolom 2 -->
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/css.png" alt="CSS3 Logo" class="w-32 h-32 mt-16">
-                <span class="text-3xl font-lg text-slate-700 mt-9">CSS3</span>
-            </div>
-        </div>
-
-        <!-- Kolom 3 -->
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/js.png" alt="JavaScript Logo" class="w-36 h-36 mt-16">
-                <span class="text-3xl mt-4 text-slate-700">JavaScript</span>
-            </div>
-        </div>
-
-        <!-- Kolom 4 -->
-        <div class="space-y-8" data-aos="zoom-in">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/php.png" alt="PHP Logo" class="w-33 h-32 mt-20">
-                <span class="text-3xl text-slate-700 mt-9">PHP</span>
-            </div>
-        </div>
-
-        <!-- Kolom 5 -->
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/laravel.png" alt="Laravel Logo" class="w-43 h-42 mt-7">
-                <span class="text-3xl text-slate-700 mt-1">Laravel</span>
-            </div>
-        </div>
-
-        <!-- Kolom 6 -->
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/mysql.png" alt="MySQL Logo" class="w-36 h-32 mt-10">
-                <span class="text-3xl text-slate-700 mt-9">MySQL</span>
-            </div>
-        </div>
-
-        <!-- Additional logos -->
-        <div class="space-y-8" data-aos="zoom-in">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/chagpt.png" alt="ChatGPT Logo" class="w-32 h-32 mt-16">
-                <span class="text-3xl text-slate-700 mt-9">ChatGPT</span>
-            </div>
-        </div>
-
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/tailwind.png" alt="Tailwind CSS Logo" class="w-32 h-30 mt-20">
-                <span class="text-3xl text-slate-700 mt-16">Tailwind CSS</span>
-            </div>
-        </div>
-
-        <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-            <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                <img src="img/bootstrap.png" alt="Bootstrap Logo" class="w-33 h-32 mt-16">
-                <span class="text-3xl text-slate-700 mt-9">Bootstrap</span>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Services -->
