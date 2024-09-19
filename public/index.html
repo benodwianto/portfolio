@@ -10,7 +10,6 @@
         
         * {
             font-family: 'Poppins', sans-serif;
-            border: 1px solid red;
         }
         /* Animasi untuk teks berjalan horizontal */
         @keyframes runningText {
@@ -75,6 +74,58 @@
     transform: translateY(-20px);
     animation: slideUp 0.5s ease forwards;
 }
+
+.flip-card {
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer; 
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    bottom: 100%; /* Position above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Prevent tooltip from interfering with hover */
+}
+
+.flip-card:hover .tooltip {
+    opacity: 1; /* Show tooltip on hover */
+}
+
+.card-front, .card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem; /* Adjust as needed */
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-front {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust for visibility */
+}
+
 </style>
 <script>
     tailwind.config = {
@@ -245,83 +296,202 @@
         
         <!-- Background image (placed behind the stack logos) -->
         <div class="absolute inset-0 z-0 flex justify-center items-center opacity-90 mt-32 glass-effect blur-sm ml-0">
-            <img src="img/peoplework.png" width="900px" alt="Background Image" class="object-cover flex mx-auto">
+            <img src="img/globalnetwork.png" width="900px" alt="Background Image" class="object-cover flex mx-auto  animate-upDown2">
         </div>
 
         <!-- Grid of stack logos -->
-        <div class="flex justify-center">
-            <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 ">
-                <!-- Kolom 1 -->
-                <div class="" data-aos="zoom-in">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/html.png" alt="HTML5 Logo" class="mt-20 w-32 h-32">
-                        <span class="text-3xl font-xl text-slate-700 mt-4">HTML5</span>
+        <div class="justify-center flex">
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 gap-x-8">
+                <!-- Example Card -->
+                <div class="group perspective" data-aos="zoom-in">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/html.png" alt="HTML5 Logo" class="mt-18 w-32 h-32">
+                            <span class="text-3xl font-xl text-slate-700 mt-4">HTML5</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Kolom 2 -->
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/css.png" alt="CSS3 Logo" class="w-32 h-32 mt-16">
-                        <span class="text-3xl font-lg text-slate-700 mt-9">CSS3</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/css.png" alt="HTML5 Logo" class="mt-18 w-32 h-32">
+                            <span class="text-3xl font-xl text-slate-700 mt-4">CSS3</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">CSS is a computer language for laying out and structuring web pages (HTML or XML). This language contains coding elements and is composed of these “cascading style sheets” which are equally called CSS files (. css).</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Kolom 3 -->
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/js.png" alt="JavaScript Logo" class="w-36 h-36 mt-16">
-                        <span class="text-3xl mt-4 text-slate-700">JavaScript</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/js.png" alt="HTML5 Logo" class="mt-18 w-32 h-32">
+                            <span class="text-3xl font-xl text-slate-700 mt-4">CSS3</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">JavaScript is a scripting language that allows web pages to have complex features, like interactive maps, animated graphics, and drop-down menus.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Kolom 4 -->
-                <div class="space-y-8" data-aos="zoom-in">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/php.png" alt="PHP Logo" class="w-33 h-32 mt-20">
-                        <span class="text-3xl text-slate-700 mt-9">PHP</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/php.png" alt="HTML5 Logo" class="w-33 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-4">PHP</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">PHP is a server-side scripting language embedded in HTML in its simplest form. PHP allows web developers to create dynamic content and interact with databases. PHP is known for its simplicity, speed, and flexibility — features that have made it a cornerstone in the web development world.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Kolom 5 -->
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/laravel.png" alt="Laravel Logo" class="w-43 h-42 mt-7">
-                        <span class="text-3xl text-slate-700 mt-1">Laravel</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/laravel.png" alt="HTML5 Logo" class="w-43 h-42 mt-5">
+                            <span class="text-3xl font-xl text-slate-700">Laravel</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">Laravel is a free, open-source PHP framework that helps developers build modern web applications. It's designed to make the development process more enjoyable and creative by simplifying common tasks.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Kolom 6 -->
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/mysql.png" alt="MySQL Logo" class="w-36 h-32 mt-10">
-                        <span class="text-3xl text-slate-700 mt-9">MySQL</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/mysql.png" alt="HTML5 Logo" class="w-36 h-32 mt-4">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">MySQL</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">MySQL is a database that stores data in separate tables, and is organized into physical files for speed. It's based on structured query language (SQL) and uses a client-server model.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <!-- Additional logos -->
-                <div class="space-y-8" data-aos="zoom-in">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/chagpt.png" alt="ChatGPT Logo" class="w-32 h-32 mt-16">
-                        <span class="text-3xl text-slate-700 mt-9">ChatGPT</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/chagpt.png" alt="HTML5 Logo" class="w-32 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">ChatGPT</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">ChatGPT offers many functions in addition to answering simple questions. ChatGPT can compose essays, have philosophical conversations, do math, and even code for you. The tasks ChatGPT can help with also don't have to be so ambitious. I use to help me solve bugs and other.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
-                        <img src="img/tailwind.png" alt="Tailwind CSS Logo" class="w-32 h-30 mt-20">
-                        <span class="text-3xl text-slate-700 mt-16">Tailwind CSS</span>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/tailwind.png" alt="HTML5 Logo" class="w-32 h-30 mt-20">
+                            <span class="text-3xl font-xl text-slate-700 mt-16">Tailwlind Css</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">Tailwind CSS is a utility-first CSS framework designed to streamline web development by providing pre-designed utility classes that allow developers to create modern websites rapidly without leaving their HTML.</span>
+                        </div>
                     </div>
                 </div>
-        
-                <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform hover:scale-105 transition-transform duration-300">
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/bootstrap.png" alt="HTML5 Logo" class="w-33 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">Bootstrap</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">Bootstrap is a free, open-source framework that helps developers build websites and web apps quickly and easily. It's made up of HTML, CSS, and JavaScript, and includes design templates for things like forms, buttons, navigation, and more. Bootstrap's 12-column grid system can automatically adjust to the size of the screen.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/python.png" alt="HTML5 Logo" class="w-33 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">Python</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">Python is a computer programming language often used to build websites and software, automate tasks, and analyze data. Python is a general-purpose language, not specialized for any specific problems, and used to create various programmes.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/github.png" alt="HTML5 Logo" class="w-33 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">Github</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">GitHub is a cloud-based platform where you can store, share, and work together with others to write code. Storing your code in a "repository" on GitHub allows you to: Showcase or share your work. Track and manage changes to your code over time.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group perspective space-y-8" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <img src="img/vscode.png" alt="HTML5 Logo" class="w-33 h-32 mt-16">
+                            <span class="text-3xl font-xl text-slate-700 mt-9">Visual Studio Code</span>
+                            <div class="tooltip">Click to learn more!</div> <!-- Tooltip here -->
+                        </div>
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <span class="text-md font-semibold text-slate-700 text-center px-4">Visual Studio Code (VS Code) is a source code editor developed by Microsoft that's used for writing code, debugging, and other development tasks.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="space-y-8" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex flex-col items-center w-96 h-96 border-20 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter p-6 rounded-3xl bg-white/50 transform transition-transform duration-300">
                         <img src="img/bootstrap.png" alt="Bootstrap Logo" class="w-33 h-32 mt-16">
                         <span class="text-3xl text-slate-700 mt-9">Bootstrap</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
+           
     </div>
 
 
@@ -335,6 +505,11 @@
 <h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>
 </div>
 
+<script>
+function flipCard(element) {
+        element.classList.toggle('flipped'); 
+    }
+</script>
 <script src="js/script.js"></script>
    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script>
