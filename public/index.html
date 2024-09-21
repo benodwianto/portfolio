@@ -126,94 +126,6 @@
     background-color: rgba(255, 255, 255, 0.5); /* Adjust for visibility */
 }
 
-/* button */
-.animated-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 16px;
-  background-color: inherit;
-  border-radius: 100px;
-  font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button svg {
-  position: absolute;
-  width: 24px;
-  fill: greenyellow;
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .arr-1 {
-  right: 16px;
-}
-
-.animated-button .arr-2 {
-  left: -25%;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: greenyellow;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #212121;
-  border-radius: 12px;
-}
-
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-  left: 16px;
-}
-
-.animated-button:hover .text {
-  transform: translateX(12px);
-}
-
-.animated-button:hover svg {
-  fill: #212121;
-}
-
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
-}
-
-.animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
-}
 </style>
 <script>
     tailwind.config = {
@@ -310,7 +222,7 @@
         <div class="flex flex-col absolute -top-48 right-10 z-10 space-y-4">
             <!-- Foto 1: Rocket -->
             <div class="group w-80 h-80 transition-transform duration-300 ease-in-out">
-                <img src="img/rocket.png" alt="Rocket Image" class="w-full h-full rounded-full" data-aos="fade-down-left" data-aos-duration="1000">
+                <img src="img/rocket.png" alt="Rocket Image" class="w-full h-full rounded-full animate-upDown" data-aos="fade-down-left" data-aos-duration="1000">
                 <img src="img/star.png" alt="Rocket Image" class="animate-upDown2" data-aos="fade-down-left" data-aos-duration="1000">
                 <img src="img/sun.png" alt="Rocket Image" width="400" class="animate-upDown" data-aos="fade-down-left" data-aos-duration="1000">
             </div>
@@ -330,24 +242,9 @@
         
         <!-- Tombol Kaca -->
         <div class="relative flex justify-center mt-4"> 
-            <!-- <a href="#" class="px-6 py-3 text-2xl font-semibold text-slate-900 bg-sky-400/50 border-8 border-white/50 rounded-full transition-all duration-300 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter hover:text-white hover:bg-sky-700 hover:scale-105">
+            <a href="#" class="px-6 py-3 text-2xl font-semibold text-slate-900 bg-sky-400/50 border-8 border-white/50 rounded-full transition-all duration-300 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter hover:text-white hover:bg-sky-700 hover:scale-105">
                 Contact Me
-            </a> -->
-            <button class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                ></path>
-            </svg>
-            <span class="text">Modern Button</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                ></path>
-            </svg>
-            </button>
-
+            </a>
         </div>        
 
     </div>
@@ -597,37 +494,106 @@
            
     </div>
 
-    <!-- service -->
-    <div class="container">
-        <div class="relative mb-24 text-center text-2xl font-semibold pt-20 px-4 md:px-16 lg:px-32" id="services">
-    
-            <!-- Konten utama (Services) -->
-            <h1 class="relative z-10 text-center text-3xl font-semibold text-sky-400">
-                <span class="text-slate-950">Serv</span>ices
-            </h1>
-    
-            <div class="grid grid-cols-2 gap-6 mt-10">
-                <!-- Kolom kiri dengan lebar 30% -->
-                <div class="w-full" style="flex: 0 0 30%;">
-                    <img src="img/rocket.png" class="w-full">
-                    <p class="text-sm mt-4">
-                        Application Programing Interface (API)
-                    </p>
-                </div>
-    
-                <!-- Kolom kanan dengan lebar 70% -->
-                <div class="w-full" style="flex: 0 0 70%;">
-                    <p class="text-left text-sm">
-                        We offer a range of services to help bring Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque neque quo eos. Facilis aut voluptate in. Neque sunt a maxime asperiores nihil omnis nisi atque fuga aliquam, porro aspernatur illum?
-                    </p>
-                </div>
-            </div>
+<!-- Services -->
+<div class="container mx-auto py-12" id="services" style="scroll-margin-top: 80px;">
+    <h1 class="text-center mt-8 text-3xl font-semibold mb-8">Serv<span class="text-sky-400">ices</span></h1>
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
+            <img src="img/number1.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Application Programming Interface (API)</p> <!-- Tambah margin atas di sini -->
+        </div>
+        <div class="w-full lg:w-1/3" data-aos="fade-left">
+            <img src="img/api.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg font-semibold">
+                As a Fullstack Web Developer with a deep understanding of API design and integration, I specialize in building scalable and secure API solutions that enhance the functionality of any application. Whether you're looking to streamline processes, connect multiple services, or create custom APIs tailored to your business needs, I provide innovative solutions that are both efficient and reliable. Let's work together to bring your project to life with seamless API development that drives your success.
+            </p>
         </div>
     </div>
-    
+<hr class="mt-4">
 
-<!-- Projects -->
-<h1 class="mb-96 text-center mt-11 text-2xl font-semibold pt-20" id="projects">This is Projects Section</h1>
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
+        <div class="w-full lg:w-1/3" data-aos="fade-right">
+            <img src="img/langidngpage.png" alt="" class="w-96 h-96 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg font-semibold">
+                Creating stunning and high-converting landing pages is my passion. With a keen eye for design and user experience, I craft landing pages that not only look visually appealing but are strategically optimized to engage visitors and drive results. From seamless layouts to persuasive calls to action, I ensure every element is designed with your business goals in mind. Let me help you create a landing page that captures attention and turns visitors into loyal customers.
+            </p>
+        </div>
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
+            <img src="img/number2.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Landing Page</p> <!-- Tambah margin atas di sini -->
+        </div>
+    </div>
+    <hr class="mt-4">
+
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0 mt-10">
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
+            <img src="img/number3.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">E-commerce Website</p> <!-- Tambah margin atas di sini -->
+        </div>
+        <div class="w-full lg:w-1/3" data-aos="fade-left" data-aos-delay="200">
+            <img src="img/app.png" alt="" class="w-60 h-64 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg font-semibold">
+                Looking to take your online business to the next level? As an experienced Fullstack Web Developer, I specialize in creating seamless and engaging eCommerce websites that drive conversions and enhance user experience. From custom features to secure payment integrations, I build robust, scalable platforms tailored to meet your business needs. Let's turn your vision into a powerful eCommerce solution!
+            </p>
+        </div>
+    </div>
+    <hr class="mt-4">
+
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
+        <div class="w-full lg:w-1/3" data-aos="fade-right" data-aos-delay="200">
+            <img src="img/design.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg font-semibold">
+                Ready to make your website shine on any device? As a skilled Fullstack Web Developer, I specialize in building fully responsive websites that provide a seamless user experience across desktops, tablets, and smartphones. With a focus on performance and design, I ensure your site not only looks great but functions flawlessly on every screen size. Let’s create a responsive website that keeps your audience engaged, wherever they are!
+            </p>
+        </div>
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
+            <img src="img/number4.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Responsive Website</p> <!-- Tambah margin atas di sini -->
+        </div>
+    </div>
+</div>
+<hr class="mt-4">
+
+
+<!-- projects -->
+<div class="container relative px-52 mx-auto py-16" id="projects" style="scroll-margin-top: 40px;">
+    <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Projects</span></h2>
+
+    <div class="flex flex-row mx-auto bg-gradient-to-b from-sky-400 to-sky-200 py-8">
+        <!-- Card 1 -->
+        <div class="basis-1/2 flip-card border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px;height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front flex flex-col items-center justify-center h-full">
+                <img src="img/company-profile.png" alt="HTML5 Logo" class="w-full h-60 object-cover rounded-xl hover:">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">Company Profile</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="basis-1/2 flip-card border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px;height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front flex flex-col items-center justify-center h-full">
+                <img src="img/html.png" alt="HTML5 Logo" class="w-48 h-48 object-contain">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">HTML5</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
+    </div>    
+    
+</div>
+
+<!-- Contact -->
+<h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>
+</div>
 
 <!-- Contact -->
 <h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>
