@@ -79,17 +79,17 @@
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .flip-card.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Rotates the card when flipped */
 }
 
 /* Tooltip styles */
 .tooltip {
     position: absolute;
-    bottom: 100%; /* Position above the card */
+    bottom: 100%; /* Tooltip positioned above the card */
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.75);
@@ -107,7 +107,7 @@
 }
 
 .card-front, .card-back {
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Prevents the back face from being visible */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -115,54 +115,56 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 1rem; /* Adjust as needed */
+    border-radius: 1rem; /* Rounded corners */
 }
 
 .card-back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Rotates the back side */
 }
 
 .card-front {
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust for visibility */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+}
+
+/* Hover effect to brighten image */
+.flip-card .card-front img {
+    filter: brightness(50%);
+    transition: filter 0.5s ease; /* Smooth transition for brightness */
+}
+
+.flip-card:hover .card-front img {
+    filter: brightness(100%); /* Brightens the image on hover */
+}
+
+/* Keyframe animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.custom-padding {
+    padding-left: 6rem; 
+    padding-right: 6rem; 
 }
 
 </style>
-<script>
-    tailwind.config = {
-  theme: {
-    extend: {
-      animation: {
-        'spin-slow': 'spin 5s linear infinite', 
-        'upDown': 'upDown 5s ease-in-out infinite',
-        'upDown2': 'upDown2 7s ease-in-out infinite',
-        'traveling': 'traveling 6s ease-in-out infinite',
-      },
-      borderWidth: {
-        20: '20px',
-      },
-      keyframes : {
-        wiggle : {
-          '0%, 80%' : {transform: 'rotate(-3deg)'},
-          '50%' : {transform: 'rotate(3deg)'}
-        },
-        upDown: {
-          '0%, 100%': { transform: 'translateY(0)' }, 
-          '50%': { transform: 'translateY(-20px)' },  
-        },
-        upDown2: {
-          '0%, 100%': { transform: 'translateY(0)' }, // Posisi awal dan akhir tetap
-          '50%': { transform: 'translateY(20px)' },   // Gerak ke bawah dulu (10px)
-        },
-        traveling : {
-          '0%' : {transform: 'translateX(0%)'},
-          '100%' : {transform: 'translateX(-100%)'}
-        }
-      }
-    },
-  },
-  plugins: [],
-} 
-</script>
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -291,7 +293,7 @@
 </div>
 
 <!-- stack -->
-    <div class="container relative px-52 mx-auto py-16" id="stack">
+    <div class="container relative mx-auto py-16" id="stack">
         <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Stack</span></h2>
         
         <!-- Background image (placed behind the stack logos) -->
@@ -300,8 +302,8 @@
         </div>
 
         <!-- Grid of stack logos -->
-        <div class="justify-center flex">
-            <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 gap-x-8">
+        <div class="justify-center flex content-center">
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-y-6 gap-x-10">
                 <!-- Example Card -->
                 <div class="group perspective" data-aos="zoom-in">
                     <div class="flip-card relative w-96 h-96 border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out" onclick="flipCard(this)">
@@ -497,40 +499,42 @@
 <!-- Services -->
 <div class="container mx-auto py-12" id="services" style="scroll-margin-top: 80px;">
     <h1 class="text-center mt-8 text-3xl font-semibold mb-8">Serv<span class="text-sky-400">ices</span></h1>
-    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
-        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
-            <img src="img/number1.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">Application Programming Interface (API)</p> <!-- Tambah margin atas di sini -->
+    
+    <div class="flex items-center justify-center lg:justify-between lg:px-0 custom-padding">
+        <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
+            <img src="img/number1.png" alt="" class="w-64 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Application Programming Interface (API)</p>
         </div>
-        <div class="w-full lg:w-1/3" data-aos="fade-left">
+        <div class="w-full lg:w-3/5 ml-4" data-aos="fade-left">
             <img src="img/api.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
             <p class="text-slate-700 text-lg font-semibold">
                 As a Fullstack Web Developer with a deep understanding of API design and integration, I specialize in building scalable and secure API solutions that enhance the functionality of any application. Whether you're looking to streamline processes, connect multiple services, or create custom APIs tailored to your business needs, I provide innovative solutions that are both efficient and reliable. Let's work together to bring your project to life with seamless API development that drives your success.
             </p>
         </div>
     </div>
-<hr class="mt-4">
+    <hr class="mt-4">
 
-    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
-        <div class="w-full lg:w-1/3" data-aos="fade-right">
+    <div class="flex items-center justify-center lg:justify-between lg:px-8 px-4 mx-auto custom-padding">
+        <div class="w-full lg:w-3/5 ml-8" data-aos="fade-right">
             <img src="img/langidngpage.png" alt="" class="w-96 h-96 mx-auto animate-upDown2">
             <p class="text-slate-700 text-lg font-semibold">
                 Creating stunning and high-converting landing pages is my passion. With a keen eye for design and user experience, I craft landing pages that not only look visually appealing but are strategically optimized to engage visitors and drive results. From seamless layouts to persuasive calls to action, I ensure every element is designed with your business goals in mind. Let me help you create a landing page that captures attention and turns visitors into loyal customers.
             </p>
         </div>
-        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
-            <img src="img/number2.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">Landing Page</p> <!-- Tambah margin atas di sini -->
+        <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
+            <img src="img/number2.png" alt="" class="w-64 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Landing Page</p>
         </div>
     </div>
+    
     <hr class="mt-4">
 
-    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0 mt-10">
-        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
-            <img src="img/number3.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">E-commerce Website</p> <!-- Tambah margin atas di sini -->
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0 mt-10 custom-padding">
+        <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right">
+            <img src="img/number3.png" alt="" class="w-64 h-64 mb-0 animate-upDown">
+            <p class="text-2xl font-semibold text-center mt-6 z-10">E-commerce Website</p>
         </div>
-        <div class="w-full lg:w-1/3" data-aos="fade-left" data-aos-delay="200">
+        <div class="w-full lg:w-3/5" data-aos="fade-left" data-aos-delay="200">
             <img src="img/app.png" alt="" class="w-60 h-64 mx-auto animate-upDown2">
             <p class="text-slate-700 text-lg font-semibold">
                 Looking to take your online business to the next level? As an experienced Fullstack Web Developer, I specialize in creating seamless and engaging eCommerce websites that drive conversions and enhance user experience. From custom features to secure payment integrations, I build robust, scalable platforms tailored to meet your business needs. Let's turn your vision into a powerful eCommerce solution!
@@ -539,16 +543,16 @@
     </div>
     <hr class="mt-4">
 
-    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0">
-        <div class="w-full lg:w-1/3" data-aos="fade-right" data-aos-delay="200">
+    <div class="flex items-center justify-center lg:justify-between px-4 lg:px-0 custom-padding">
+        <div class="w-full lg:w-3/5" data-aos="fade-right" data-aos-delay="200">
             <img src="img/design.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
             <p class="text-slate-700 text-lg font-semibold">
                 Ready to make your website shine on any device? As a skilled Fullstack Web Developer, I specialize in building fully responsive websites that provide a seamless user experience across desktops, tablets, and smartphones. With a focus on performance and design, I ensure your site not only looks great but functions flawlessly on every screen size. Let’s create a responsive website that keeps your audience engaged, wherever they are!
             </p>
         </div>
-        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
+        <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left">
             <img src="img/number4.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">Responsive Website</p> <!-- Tambah margin atas di sini -->
+            <p class="text-2xl font-semibold text-center mt-6 z-10">Responsive Website</p>
         </div>
     </div>
 </div>
@@ -556,15 +560,15 @@
 
 
 <!-- projects -->
-<div class="container relative px-52 mx-auto py-16" id="projects" style="scroll-margin-top: 40px;">
+<div class="container relative custom-padding mx-auto py-16" id="projects" style="scroll-margin-top: 40px;">
     <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Projects</span></h2>
 
-    <div class="flex flex-row mx-auto bg-gradient-to-b from-sky-400 to-sky-200 py-8">
-        <!-- Card 1 -->
-        <div class="basis-1/2 flip-card border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px;height: 350px;" onclick="flipCard(this)">
+    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8" data-aos="flip-up">
+        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
             <!-- Front of the card -->
-            <div class="card-front flex flex-col items-center justify-center h-full">
-                <img src="img/company-profile.png" alt="HTML5 Logo" class="w-full h-60 object-cover rounded-xl hover:">
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/company-profile.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
                 <span class="text-3xl font-semibold text-slate-700 mt-4">Company Profile</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
@@ -574,12 +578,12 @@
             </div>
         </div>
     
-        <!-- Card 2 -->
-        <div class="basis-1/2 flip-card border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px;height: 350px;" onclick="flipCard(this)">
+        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
             <!-- Front of the card -->
-            <div class="card-front flex flex-col items-center justify-center h-full">
-                <img src="img/html.png" alt="HTML5 Logo" class="w-48 h-48 object-contain">
-                <span class="text-3xl font-semibold text-slate-700 mt-4">HTML5</span>
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/nexus.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">Web Cek Motor</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
@@ -587,17 +591,106 @@
                 <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8 mt-16" data-aos="flip-up">
+        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/distro.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">E-commerce</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
     
+        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/cx-voting.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">E-Voting</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8 mt-16" data-aos="flip-up">
+        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/portfolio.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">Web Portfolio</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
+    
+        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="card-front relative flex flex-col items-center justify-center h-full">
+                <!-- Dark overlay on the image -->
+                <img src="img/landingpage.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
+                <span class="text-3xl font-semibold text-slate-700 mt-4">Landing Page</span>
+                <div class="tooltip">Click to learn more!</div>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back flex flex-col items-center justify-center h-full">
+                <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+            </div>
+        </div>
+    </div>
+     
 </div>
 
 <!-- Contact -->
-<h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>
+<div class="container">
+    <h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>      
+    <footer class="bg-sky-400 text-white py-10 filter brightness-90">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kolom Pertama: Contact -->
+                <div class="mb-8">
+                    <h2 class="text-xl text-slate-900 font-semibold mb-4">Contact</h2>
+                    <p class="mb-2">Email: info@example.com</p>
+                    <p class="mb-2">Phone: +123 456 7890</p>
+                    <p>Address: 123 Street Name, City, Country</p>
+                </div>
+
+                <!-- Kolom Kedua: About -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold mb-4">About Us</h2>
+                    <p class="text-sm">We are a team of dedicated professionals committed to providing top-notch services to our clients.</p>
+                </div>
+
+                <!-- Kolom Ketiga: Follow Us -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold mb-4">Follow Us</h2>
+                    <p class="text-sm">Stay connected through our social media channels:</p>
+                    <ul class="flex space-x-4 mt-2">
+                        <li><a href="#" class="text-sky-400">Facebook</a></li>
+                        <li><a href="#" class="text-sky-400">Twitter</a></li>
+                        <li><a href="#" class="text-sky-400">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
-<!-- Contact -->
-<h1 class="mb-96 text-center mt-16 text-2xl font-semibold pt-20" id="contact">This is Contact Section</h1>
-</div>
+
 
 <script>
 function flipCard(element) {
