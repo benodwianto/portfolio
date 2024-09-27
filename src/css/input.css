@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hamburger-line {
+  @apply block w-[30px] h-[2px] my-2 bg-black;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+/* Menyembunyikan navbar desktop pada ukuran mobile */
+#nav-desktop {
+  display: none; /* Secara default tersembunyi */
+}
+
+/* Menampilkan navbar pada ukuran desktop (min-width: 768px) */
+@media (min-width: 768px) {
+  #nav-desktop {
+    display: flex; /* Menampilkan navbar pada layar desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  .img-service {
+    display: none;
+  }
+
+  #running-text {
+    display: none;
+  }
+}

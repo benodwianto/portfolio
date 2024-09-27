@@ -48,10 +48,8 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
-``
-
-    
-    // Array teks dan ID untuk ditampilkan
+  
+    // text chaange
     const texts = [
         { id: 'text-1', delay: 1000 },
         { id: 'text-2', delay: 2000 },
@@ -92,4 +90,27 @@ sections.forEach(section => {
         showText();  // Start the text animation loop
     };
 
+// hambureger menu
+const hamburger = document.querySelector("#hamburger");
+const navMenu = document.querySelector("#nav-menu");
+
+hamburger.addEventListener("click", function (){
+    hamburger.classList.toggle("hamburger-active");
+    navMenu.classList.toggle("hidden");
+});
+
+//navbar desktop
+window.addEventListener('resize', function() {
+    const navDesktop = document.getElementById('nav-desktop');
     
+    if (window.innerWidth >= 768) {
+        navDesktop.style.display = 'flex';  
+    } else {
+        navDesktop.style.display = 'none';  
+    }
+});
+
+// Panggil event sekali untuk menentukan status awal saat halaman dimuat
+window.dispatchEvent(new Event('resize'));
+
+
