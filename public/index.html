@@ -29,7 +29,7 @@
     </nav>
 
     <!-- toogle dark mode -->
-    <div class="absolute lg:right-4 lg:top-5 top-0 right-32 flex items-center">
+    <div class="absolute z-10 lg:right-4 lg:top-5 top-0 right-20 flex items-center">
         <input type="checkbox" class="hidden" id="toggle-mode">
         <label for="toggle-mode" class="cursor-pointer relative w-8 h-8 flex justify-center items-center dark:bg-white rounded-full transition-all">
             <i class="fas fa-sun sun-icon text-yellow-400 text-xl"></i>
@@ -50,14 +50,14 @@
     </nav>
 
     <!-- mobile menu -->
-    <header class="lg:hidden md:hidden bg-transparent absolute w-full top-0 left-0  z-10 items-center">
+    <header class="lg:hidden md:hidden bg-transparent absolute w-full top-0 left-0  z-index-10 items-center">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-2">
                     <a href="#home" class="py-6 text-xl text-slate-700 dark:text-slate-200">Beno <span class="text-sky-400">Dwianto</span></a>
                 </div>
-                <div class="flex items-end px-2">
-                    <button id="hamburger" type="button" class="block absolute right-28 focus:outline-none lg:hidden md:hidden">
+                <div class="flex items-center px-2">
+                    <button id="hamburger" type="button" class="block absolute right-4 focus:outline-none lg:hidden md:hidden">
                         <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
                         <span class="hamburger-line transition duration-300 ease-in-out"></span>
                         <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
