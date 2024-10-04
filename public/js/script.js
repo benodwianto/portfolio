@@ -1,3 +1,17 @@
+// back to top
+window.onscroll = function() {
+    const top = document.getElementById("to-top");
+
+    if (window.pageYOffset > 100) {
+        top.classList.remove("hidden");
+        top.classList.add("flex");
+    } else {
+        top.classList.add("hidden");
+        top.classList.remove("flex");
+        top.classList.add("hidden");
+    }
+}
+ 
  // Get the background and links
 const activeBg = document.getElementById("active-bg");
 const links = document.querySelectorAll("nav a");
@@ -85,7 +99,6 @@ sections.forEach(section => {
         setTimeout(showText, texts[currentIndex].delay);
     }
  
-    // Mulai menampilkan teks, teks pertama tampil tanpa animasi
     window.onload = () => {
         showText();  // Start the text animation loop
     };
@@ -99,6 +112,14 @@ hamburger.addEventListener("click", function (){
     navMenu.classList.toggle("hidden");
 });
 
+// close-hamburger-menu
+window.addEventListener('click', function(e) {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove("hamburger-active");
+        navMenu.classList.add("hidden");
+    }
+});
+
 //navbar desktop
 window.addEventListener('resize', function() {
     const navDesktop = document.getElementById('nav-desktop');
@@ -110,7 +131,32 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Panggil event sekali untuk menentukan status awal saat halaman dimuat
 window.dispatchEvent(new Event('resize'));
+
+
+// dark mode
+document.getElementById("toggle-mode").addEventListener("change", function () {
+    const sunIcon = document.querySelector(".sun-icon");
+    const moonIcon = document.querySelector(".moon-icon");
+
+    if (this.checked) {
+        // Animasi dari sun ke moon
+        sunIcon.classList.add("hidden");
+        sunIcon.classList.remove("visible");
+
+        moonIcon.classList.remove("hidden");
+        moonIcon.classList.add("visible");
+    } else {
+        // Animasi dari moon ke sun
+        moonIcon.classList.add("hidden");
+        moonIcon.classList.remove("visible");
+
+        sunIcon.classList.remove("hidden");
+        sunIcon.classList.add("visible");
+    }
+
+    // Ganti mode gelap atau terang
+    document.documentElement.classList.toggle('dark');
+});
 
 

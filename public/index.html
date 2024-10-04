@@ -6,195 +6,19 @@
     <title>Beno Dwianto | Portfolio</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        /* Animasi untuk teks berjalan horizontal */
-        @keyframes runningText {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
 
-        .run-text-wrapper {
-            overflow: hidden; /* Memastikan teks keluar dari container tidak terlihat */
-            width: 100%;
-        }
-
-        .run-text {
-            white-space: nowrap; /* Membuat teks tidak terpotong */
-            display: inline-block;
-            animation: runningText 100s linear infinite;
-        }
-
-        .run-text-content {
-            display: inline-block;
-            padding-right: 100%; /* Menambahkan padding agar teks memiliki ruang di antara duplikasi */
-        }
-
-        @keyframes slideUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-.opacity-100 {
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideDown 0.5s ease forwards;
-}
-
-.opacity-0 {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: slideUp 0.5s ease forwards;
-}
-
-.flip-card {
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-.flip-card.flipped {
-    transform: rotateY(180deg); /* Rotates the card when flipped */
-}
-
-/* Tooltip styles */
-.tooltip {
-    position: absolute;
-    bottom: 100%; /* Tooltip positioned above the card */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none; /* Prevent tooltip from interfering with hover */
-}
-
-.flip-card:hover .tooltip {
-    opacity: 1; /* Show tooltip on hover */
-}
-
-.card-front, .card-back {
-    backface-visibility: hidden; /* Prevents the back face from being visible */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1rem; /* Rounded corners */
-}
-
-.card-back {
-    transform: rotateY(180deg); /* Rotates the back side */
-}
-
-.card-front {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-}
-
-/* Hover effect to brighten image */
-.flip-card .card-front img {
-    filter: brightness(50%);
-    transform: scale(1.2); 
-    transition: transform 0.5s ease, filter 0.5s ease; 
-}
-
-.flip-card:hover .card-front img {
-    filter: brightness(100%); 
-    transform: scale(1); 
-}
-
-/* Keyframe animations */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
-
-.custom-padding {
-    padding-left: 6rem; 
-    padding-right: 6rem; 
-}
-
-/* humberger menu */
-.bar {
-    transition: all 0.3s ease;
-}
-
-#hamburger-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#mobile-menu {
-    display: none; /* Hidden by default */
-}
-
-</style>
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- FOnt awesome icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="dark:bg-[#0F172A]">
 
 <!-- Navbar -->
-<div class="bg-white bg-opacity-20 backdrop-blur-md bg-gradient-to-b from-white/30 to-transparent p-3 fixed top-0 z-50 w-full">
-    <nav id="nav-desktop" class="flex items-center justify-center space-x-1 bg-white p-1 rounded-full shadow-md w-[600px] mx-auto relative">
-        <div id="active-bg" class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-sky-200 to-blue-500 transition-all duration-500 " style="width: 100px; transform: translateX(0%);"></div>
+<div class="bg-white bg-opacity-20 backdrop-blur-md bg-gradient-to-b from-white/30 to-transparent p-3 fixed top-0 z-50 lg:w-full w-[414px]">
+    <nav id="nav-desktop" class="flex items-center justify-center space-x-1 bg-white dark:bg-slate-500 p-1 rounded-full shadow-md w-[600px] mx-auto relative">
+        <div id="active-bg" class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-sky-200 to-blue-500 dark:from-sky-500 dark:to-blue-900 transition-all duration-500 " style="width: 100px; transform: translateX(0%);"></div>
 
         <a href="#home" id="home-link" class="relative z-10 text-white px-4 py-2 rounded-full font-semibold transition-transform transform hover:scale-105">Home</a>
         <a href="#about" id="about-link" class="relative z-10 px-4 py-2 rounded-full font-semibold transition-transform transform hover:scale-105">About</a>
@@ -203,16 +27,25 @@
         <a href="#projects" id="projects-link" class="relative z-10 px-4 py-2 rounded-full font-semibold transition-transform transform hover:scale-105">Projects</a>
         <a href="#contact" id="contact-link" class="relative z-10 px-4 py-2 rounded-full font-semibold transition-transform transform hover:scale-105">Contact</a>
     </nav>
+
+    <!-- toogle dark mode -->
+    <div class="absolute lg:right-4 lg:top-5 top-2 right-10 flex items-center">
+        <input type="checkbox" class="hidden" id="toggle-mode">
+        <label for="toggle-mode" class="cursor-pointer relative w-8 h-8 flex justify-center items-center dark:bg-white rounded-full transition-all">
+            <i class="fas fa-sun sun-icon text-yellow-400 text-xl"></i>
+            <i class="fas fa-moon moon-icon hidden text-xl"></i>
+        </label>
+    </div>
     
  <div class="container py-1">
     <nav id="nav-menu" class="hidden py-3 max-w-[25px] w-fulll right-4 rounded-lg mt-2 mx-auto">
         <ul class="block">
-            <li class="group"><a href="#home" class="block mt-1 hover:text-sky-400 text-slate-700">Home</a></li>
-            <li class="group"><a href="#about" class="block mt-1 hover:text-sky-400 text-slate-700">About</a></li>
-            <li class="group"><a href="#stack" class="block mt-1 hover:text-sky-400 text-slate-700">stack</a></li>
-            <li class="group"><a href="#services" class="block mt-1 hover:text-sky-400 text-slate-700">Services</a></li>
-            <li class="group"><a href="#projects" class="block mt-1 hover:text-sky-400 text-slate-700">Projects</a></li>
-            <li class="group"><a href="#contact"  class="block mt-1 hover:text-sky-400 text-slate-700">Contact</a></li>
+            <li class="group"><a href="#home" class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">Home</a></li>
+            <li class="group"><a href="#about" class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">About</a></li>
+            <li class="group"><a href="#stack" class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">stack</a></li>
+            <li class="group"><a href="#services" class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">Services</a></li>
+            <li class="group"><a href="#projects" class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">Projects</a></li>
+            <li class="group"><a href="#contact"  class="block mt-1 hover:text-sky-400 dark:hover:text-blue-500 text-slate-700 dark:text-slate-200">Contact</a></li>
         </ul>
     </nav>
 
@@ -221,7 +54,7 @@
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-2">
-                    <a href="#home" class="py-6 text-xl text-slate-700">Beno <span class="text-sky-400">Dwianto</span></a>
+                    <a href="#home" class="py-6 text-xl text-slate-700 dark:text-slate-200">Beno <span class="text-sky-400">Dwianto</span></a>
                 </div>
                 <div class="flex items-center px-2">
                     <button id="hamburger" type="button" class="block absolute right-28 focus:outline-none lg:hidden md:hidden">
@@ -242,11 +75,11 @@
 <section class="container" id="home">
     
     <div class="text-center lg:pt-24 md:pt-24 pt-12" id="home">
-        <h1 class="lg:text-4xl md:text-4xl text-3xl font-semibold">Hello World,<span class="font-serif italic text-sky-400">I'm Beno</span></h1>
-        <h1 id="text-1" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out hidden">Fullstack Web Developer</h1>
-        <h1 id="text-2" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out hidden">Laravel, PHP, MySQL</h1>
-        <h1 id="text-3" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out hidden">Tailwind CSS</h1>
-        <h1 id="text-4" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out hidden">Bootstrap</h1>
+        <h1 class="lg:text-4xl md:text-4xl text-3xl font-semibold dark:text-slate-200">Hello World,<span class="font-serif italic text-sky-400">I'm Beno</span></h1>
+        <h1 id="text-1" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out dark:text-slate-200 hidden">Fullstack Web Developer</h1>
+        <h1 id="text-2" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out dark:text-slate-200 hidden">Laravel, PHP, MySQL</h1>
+        <h1 id="text-3" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out dark:text-slate-200 hidden">Tailwind CSS</h1>
+        <h1 id="text-4" class="lg:text-xl md:text-xl text-lg opacity-0 transform translate-y-5 transition-opacity duration-500 ease-in-out dark:text-slate-200 hidden">Bootstrap</h1>
     </div>
 
     <div class="relative lg:mt-20 md:mt-20 mt-32">
@@ -257,16 +90,16 @@
         </div>    
         
         <div class="group mt-10 lg:mt-0 lg:w-60 lg:h-70 mx-auto rounded-full absolute z-10 left-1/2 top-1/4 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 ease-in-out group-hover:translate-y-10">
-            <img src="img/mee.png" alt="Overlay Image" class="lg:w-full lg:h-full rounded-full border-8 shadow-4xl bg-sky-400/50 border-white/50 group-hover:rotate-90 origin-top-left transition-transform duration-500 ease-in-out">
+            <img src="img/meee.png" alt="Overlay Image" class="lg:w-full lg:h-full rounded-full border-8 shadow-4xl bg-gradient-to-r from-sky-200 to-blue-500 border-white/50 group-hover:rotate-90 origin-top-left transition-transform duration-500 ease-in-out">
         </div>
 
         <!-- Container untuk foto di kiri -->
         <div class="flex flex-col absolute -top-60 md:left-10 lg:left-10 left-5 z-10 space-y-3" data-aos="fade-right" data-aos-duration="1000">
             <!-- Foto 1 -->
             <div class="group transition-transform duration-300 mb-50 ease-in-out">
-                <img src="img/cloud.png" alt="Cloud Image" class="lg:w-[350px] lg:h-[350px] md:w-[350px] md:h-[350px] w-32 h-32 lg:ml-32 md:ml-32 lg:-mt-20 md:-mt-20 mt-20 ml-[12px] animate-upDown2" >
-                <img src="img/flash.png" alt="Flash Image" class="lg:w-[250px] lg:h-[250px] md:w-[250px] md:h-[250px] w-[120px] h-[120px] mx-auto -mt-24 lg:mt-4 md:mt-4 animate-upDown" >
-                <img src="img/cir.png" alt="Circle Image" class="lg:w-[250px] lg:h-[200px] md:w-[250px] md:h-[200px] w-[120px] h-[90px] -mt-24 lg:mt-1 ml-60 animate-upDown2" >
+                <img src="img/cloud.png" alt="Cloud Image" class="lg:w-56 lg:h-36 md:w-56 md:h-36 w-24 h-16 lg:ml-32 md:ml-32 lg:mt-20 md:-mt-20 mt-36 ml-[12px] animate-upDown2" >
+                <img src="img/flash.png" alt="Flash Image" class="lg:w-28 lg:h-56 md:w-40 md:h-40 w-16 h-32 mx-auto -mt-20 lg:mt-16 md:mt-4 animate-upDown" >
+                <img src="img/cir.png" alt="Circle Image" class="lg:w-36 lg:h-36 md:w-36 md:h-36 w-20 h-20 -mt-28 lg:mt-8 ml-60 animate-upDown2" >
             </div>
         </div>
         
@@ -274,24 +107,24 @@
         <div class="flex flex-col absolute -top-48 right-10 z-10 space-y-4" data-aos="fade-left" data-aos-duration="1000">
             <!-- Foto 1: Rocket -->
             <div class="group w-80 h-80 transition-transform duration-300 ease-in-out">
-                <img src="img/rocket.png" alt="Rocket Image" class="lg:w-full lg:h-full md:w-full md:h-full w-40 h-40 rounded-full ml-[170px] mt-96 lg:mt-0 lg:ml-0 animate-upDown">
-                <img src="img/star.png" alt="Star Image" class="animate-upDown2 lg:w-64 lg:h-56 md:w-72 md:h-60 w-36 h-28 mt-4 lg:mt-0 mx-auto">
-                <img src="img/sun.png" alt="Sun Image" class="animate-upDown lg:w-[288px] lg:h-[200px] w-40 h-24 -mt-64 lg:mt-0 content-start ">
+                <img src="img/rocket.png" alt="Rocket Image" class="lg:w-56 lg:h-72 md:w-56 md:h-72 w-32 h-44 rounded-full ml-52 mt-96 lg:mt-10 lg:ml-0 animate-upDown">
+                <img src="img/star.png" alt="Star Image" class="animate-upDown2 lg:w-44 lg:h-40 md:w-72 md:h-60 w-24 h-24 mt-2 lg:-mt-0 mx-auto">
+                <img src="img/sun.png" alt="Sun Image" class="animate-upDown lg:w-44 lg:h-44 w-28 h-28 -mt-60 lg:mt-6 -ml-10">
             </div>
         </div>
 
         <!-- Running text -->
         <div class="run-text-wrapper relative z-0">
             <div class="run-text" id="running-text">
-                <div class="run-text-content text-[250px] font-bold text-blue-600">
+                <div class="run-text-content text-[250px] font-bold text-blue-600 dark:text-sky-500">
                     Hello World! I'm Beno Dwianto, A Web Developer &nbsp;
                 </div>
-                <div class="run-text-content text-[250px] font-bold text-blue-600">
+                <div class="run-text-content text-[250px] font-bold text-blue-600 dark:text-sky-500">
                     Hello World! I'm Beno Dwianto, A Web Developer &nbsp;
                 </div>
             </div>
-        </div>
-        
+        </div>       
+                                                    
         <!-- Tombol Kaca -->
         <div class="relative flex justify-center mt-80 lg:mt-4"> 
             <a href="#contact" class="px-6 py-3 text-2xl font-semibold text-slate-900 bg-sky-400/50 border-8 border-white/50 rounded-full transition-all duration-300 ease-in-out shadow-2xl backdrop-blur-lg backdrop-filter hover:text-white hover:bg-sky-700 hover:scale-105">
@@ -307,17 +140,17 @@
 <!-- About Me -->
 <section class="relative mb-24 text-center mt-16 text-2xl font-semibold pt-20 px-4 md:px-16 lg:px-32" id="about">
     <!-- Gambar Rocket di belakang -->
-    <div class="absolute inset-0 z-0 flex justify-center items-center lg:mt-2 -mt-96">
-        <img src="img/rocket.png" alt="Rocket" class="opacity-80 blur-sm w-90 h-90 object-cover glass-effect">
+    <div class="absolute inset-0 z-0 flex justify-center items-center lg:mt-2 -mt-16">
+        <img src="img/rocket.png" alt="Rocket" class="opacity-80 blur-sm w-80 h-90 object-cover glass-effect">
     </div>
 
     <!-- Konten utama (About Me) -->
-    <h1 class="relative z-10 text-center text-3xl font-semibold text-sky-400"><span class="text-slate-950">About</span> Me</h1>
+    <h1 class="relative z-10 text-center text-3xl font-semibold text-sky-400"><span class="text-slate-950 dark:text-slate-200">About</span> Me</h1>
     <div class="relative z-10 flex flex-wrap justify-center items-center" data-aos="fade-up-right" data-aos-duration="1000">
         <!-- Kolom kiri untuk teks -->
         <div class="w-full md:w-1/2 p-4">
-            <h2 class="lg:text-left lg:text-4xl text-2xl font-bold mb-4">Welcome to my <span class="text-sky-400 uppercase italic">Portfolio</span></h2>
-            <p class="lg:text-left text-center text-slate-700 text-lg">
+            <h2 class="lg:text-left lg:text-4xl text-2xl font-bold mb-4 dark:text-slate-200">Welcome to my <span class="text-sky-400 uppercase italic">Portfolio</span></h2>
+            <p class="lg:text-left text-center text-slate-700 dark:text-slate-300 text-lg">
                 Hi, I'm <span class="text-sky-400">Beno Dwianto</span>, a passionate Fullstack Web Developer with expertise in both front-end and back-end development. With a strong foundation in user interface design and seamless GitHub integration, I bring both creativity and technical precision to every project. <br><br>
 
                 My diverse skill set enables me to build engaging, responsive, and high-performing web applications that not only look great but function flawlessly. Whether working independently or as part of a team, I excel in creating intuitive user experiences, often focusing on the complexities of back-end development to ensure robust and scalable solutions.
@@ -326,7 +159,7 @@
 
         <!-- Kolom kanan untuk foto -->
         <div class="w-full md:w-1/2 p-4 flex justify-center" data-aos="fade-up-left" data-aos-duration="1000">
-            <img src="img/org.png" alt="My Photo" class="w-96 h-w-96 animate-upDown font-serif relative z-10">
+            <img src="img/org.png" alt="My Photo" class="lg:w-96 lg:h-96 w-60 h-60 animate-upDown font-serif relative z-10">
         </div>
     </div>
 
@@ -343,8 +176,8 @@
 </section>
 
 <!-- stack -->
-    <section class="container relative mx-auto py-16 pt-20" id="stack">
-        <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Stack</span></h2>
+    <section class="container relative mx-auto py-16 pt-20 dark:bg-slate-800" id="stack">
+        <h2 class="text-3xl font-semibold text-center mb-12 dark:text-slate-200">My <span class="text-sky-400">Stack</span></h2>
         
         <!-- Background image (placed behind the stack logos) -->
         <div class="absolute inset-0 z-0 flex justify-center items-center mt-32 glass-effect blur ml-0">
@@ -365,7 +198,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">HTML5 is the standard for structuring web content.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">HTML5 is the standard for structuring web content.</span>
                         </div>
                     </div>
                 </div>
@@ -380,7 +213,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">CSS is a computer language for laying out and structuring web pages (HTML or XML). This language contains coding elements and is composed of these “cascading style sheets” which are equally called CSS files (. css).</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">CSS is a computer language for laying out and structuring web pages (HTML or XML). This language contains coding elements and is composed of these “cascading style sheets” which are equally called CSS files (. css).</span>
                         </div>
                     </div>
                 </div>
@@ -395,7 +228,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">JavaScript is a scripting language that allows web pages to have complex features, like interactive maps, animated graphics, and drop-down menus.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">JavaScript is a scripting language that allows web pages to have complex features, like interactive maps, animated graphics, and drop-down menus.</span>
                         </div>
                     </div>
                 </div>
@@ -410,7 +243,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">PHP is a server-side scripting language embedded in HTML in its simplest form. PHP allows web developers to create dynamic content and interact with databases. PHP is known for its simplicity, speed, and flexibility — features that have made it a cornerstone in the web development world.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">PHP is a server-side scripting language embedded in HTML in its simplest form. PHP allows web developers to create dynamic content and interact with databases. PHP is known for its simplicity, speed, and flexibility — features that have made it a cornerstone in the web development world.</span>
                         </div>
                     </div>
                 </div>
@@ -425,7 +258,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">Laravel is a free, open-source PHP framework that helps developers build modern web applications. It's designed to make the development process more enjoyable and creative by simplifying common tasks.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">Laravel is a free, open-source PHP framework that helps developers build modern web applications. It's designed to make the development process more enjoyable and creative by simplifying common tasks.</span>
                         </div>
                     </div>
                 </div>
@@ -440,7 +273,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">MySQL is a database that stores data in separate tables, and is organized into physical files for speed. It's based on structured query language (SQL) and uses a client-server model.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">MySQL is a database that stores data in separate tables, and is organized into physical files for speed. It's based on structured query language (SQL) and uses a client-server model.</span>
                         </div>
                     </div>
                 </div>
@@ -455,7 +288,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">ChatGPT offers many functions in addition to answering simple questions. ChatGPT can compose essays, have philosophical conversations, do math, and even code for you. The tasks ChatGPT can help with also don't have to be so ambitious. I use to help me solve bugs and other.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">ChatGPT offers many functions in addition to answering simple questions. ChatGPT can compose essays, have philosophical conversations, do math, and even code for you. The tasks ChatGPT can help with also don't have to be so ambitious. I use to help me solve bugs and other.</span>
                         </div>
                     </div>
                 </div>
@@ -470,7 +303,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">Tailwind CSS is a utility-first CSS framework designed to streamline web development by providing pre-designed utility classes that allow developers to create modern websites rapidly without leaving their HTML.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">Tailwind CSS is a utility-first CSS framework designed to streamline web development by providing pre-designed utility classes that allow developers to create modern websites rapidly without leaving their HTML.</span>
                         </div>
                     </div>
                 </div>
@@ -485,7 +318,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">Bootstrap is a free, open-source framework that helps developers build websites and web apps quickly and easily. It's made up of HTML, CSS, and JavaScript, and includes design templates for things like forms, buttons, navigation, and more. Bootstrap's 12-column grid system can automatically adjust to the size of the screen.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">Bootstrap is a free, open-source framework that helps developers build websites and web apps quickly and easily. It's made up of HTML, CSS, and JavaScript, and includes design templates for things like forms, buttons, navigation, and more. Bootstrap's 12-column grid system can automatically adjust to the size of the screen.</span>
                         </div>
                     </div>
                 </div>
@@ -500,7 +333,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">Python is a computer programming language often used to build websites and software, automate tasks, and analyze data. Python is a general-purpose language, not specialized for any specific problems, and used to create various programmes.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">Python is a computer programming language often used to build websites and software, automate tasks, and analyze data. Python is a general-purpose language, not specialized for any specific problems, and used to create various programmes.</span>
                         </div>
                     </div>
                 </div>
@@ -515,7 +348,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">GitHub is a cloud-based platform where you can store, share, and work together with others to write code. Storing your code in a "repository" on GitHub allows you to: Showcase or share your work. Track and manage changes to your code over time.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">GitHub is a cloud-based platform where you can store, share, and work together with others to write code. Storing your code in a "repository" on GitHub allows you to: Showcase or share your work. Track and manage changes to your code over time.</span>
                         </div>
                     </div>
                 </div>
@@ -530,7 +363,7 @@
                         </div>
                         <!-- Back of the card -->
                         <div class="card-back">
-                            <span class="text-md font-semibold text-slate-700 text-center px-4">Visual Studio Code (VS Code) is a source code editor developed by Microsoft that's used for writing code, debugging, and other development tasks.</span>
+                            <span class="text-md font-semibold text-slate-700 dark:text-slate-300 text-center px-4">Visual Studio Code (VS Code) is a source code editor developed by Microsoft that's used for writing code, debugging, and other development tasks.</span>
                         </div>
                     </div>
                 </div>
@@ -547,109 +380,109 @@
     </section>
 
 <!-- Services -->
-<section class="container mx-auto py-12 pt-14" id="services">
-    <h1 class="text-center mt-8 text-3xl font-semibold mb-8">Serv<span class="text-sky-400">ices</span></h1>
+<section class="container py-12 pt-14" id="services">
+    <h1 class="text-center mt-8 text-3xl font-semibold mb-8 dark:text-slate-200">Serv<span class="text-sky-400">ices</span></h1>
 
     <!-- API Section -->
-    <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:px-0 lg:custom-padding" id="api">
+    <div class="flex flex-col lg:flex-row mx-7 items-center justify-center lg:justify-between lg:px-32 lg:custom-padding px-4" id="api">
         <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
             <img src="img/number1.png" alt="" class="lg:w-64 lg:h-72 w-36 h-40 mb-0 animate-upDown">
-            <p class="text-2xl lg:font-semibold text-center mt-6 z-10">Application Programming Interface (API)</p>
+            <p class="text-2xl lg:font-semibold text-center mt-6 z-10 dark:text-slate-200">Application Programming Interface (API)</p>
         </div>
-        <div class="w-full lg:w-3/5 ml-4 lg:ml-0 lg:border-b-4 border-b-2" data-aos="fade-left" data-aos-duration="1000">
-            <img src="img/api.png" alt="" class="lg:w-80 lg:h-80 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg lg:font-semibold lg:text-left">
+        <div class="w-full lg:w-3/5 ml-4 lg:ml-0 lg:border-b-4 border-b-2 dark:border-slate-600" data-aos="fade-left" data-aos-duration="1000">
+            <img src="img/api.png" alt="" class="lg:w-80 lg:h-80 mx-auto w-40 h-40 animate-upDown2">
+            <p class="text-slate-700 text-lg lg:font-semibold lg:text-justify text-justify dark:text-slate-300">
                 As a Fullstack Web Developer with a deep understanding of API design and integration, I specialize in building scalable and secure API solutions that enhance the functionality of any application...
             </p>
         </div>
     </div>
 
     <!-- Landing Page Section -->
-    <div class="img-service flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:px-8 px-4 mx-auto lg:custom-padding" id="landingpage">
-        <div class="w-full lg:w-3/5 ml-8 lg:ml-0 lg:border-b-4" data-aos="fade-right" data-aos-duration="1000">
+    <div class="img-service flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:px-32 px-4 mx-auto lg:custom-padding" id="landingpage">
+        <div class="w-full lg:w-3/5 ml-8 lg:ml-0 lg:border-b-4 dark:border-slate-600" data-aos="fade-right" data-aos-duration="1000">
             <img src="img/langidngpage.png" alt="" class="w-96 h-96 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg font-semibold text-center lg:text-left">
+            <p class="text-slate-700 text-lg font-semibold lg:text-justify text-justify dark:text-slate-300">
                 Creating stunning and high-converting landing pages is my passion. With a keen eye for design and user experience, I craft landing pages that not only look visually appealing but are strategically optimized to engage visitors and drive results. From seamless layouts to persuasive calls to action, I ensure every element is designed with your business goals in mind. Let me help you create a landing page that captures attention and turns visitors into loyal customers.
             </p>
         </div>
         <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left" data-aos-duration="1000">
             <img src="img/number2.png" alt="" class="w-64 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">Landing Page</p>
+            <p class="text-2xl font-semibold text-center mt-6 z-10 dark:text-slate-200">Landing Page</p>
         </div>
     </div>
 
-    <div class="lg:hidden flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:px-8 px-4 mx-auto lg:custom-padding mt-3" id="landingpage">
+    <div class="lg:hidden flex flex-col mx-7 lg:flex-row items-center justify-center lg:justify-between lg:px-8 px-4 lg:custom-padding mt-3" id="landingpage">
         <div class="w-full flex flex-col justify-center items-center mb-0 lg:mb-0 relative" data-aos="fade-left" data-aos-duration="1000">
             <img src="img/number2.png" alt="" class="w-36 h-36 mb-0 animate-upDown">
-            <p class="text-2xl text-center mt-6 z-10">Landing Page</p>
+            <p class="text-2xl text-center mt-6 z-10 dark:text-slate-200">Landing Page</p>
         </div>
-        <div class="w-full lg:w-3/5 ml-8 lg:ml-0 border-b-2" data-aos="fade-right" data-aos-duration="1000"></div>
+        <div class="w-full lg:w-3/5 ml-8 lg:ml-0" data-aos="fade-right" data-aos-duration="1000"></div>
             <img src="img/langidngpage.png" alt="" class="w-80 h-72 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg lg:text-left">
+            <p class="text-slate-700 text-lg lg:text-justify text-justify border-b-2 dark:text-slate-300">
                 Creating stunning and high-converting landing pages is my passion. With a keen eye for design and user experience, I craft landing pages that not only look visually appealing but are strategically optimized to engage visitors and drive results. From seamless layouts to persuasive calls to action, I ensure every element is designed with your business goals in mind. Let me help you create a landing page that captures attention and turns visitors into loyal customers.
             </p>
         </div>
     </div>
 
     <!-- E-commerce Section -->
-    <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 lg:px-0 mt-10 lg:custom-padding" id="e-commerce">
+    <div class="flex flex-col lg:flex-row items-center justify-center mx-7 lg:justify-between px-4 lg:px-32 mt-10 lg:custom-padding" id="e-commerce">
         <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
             <img src="img/number3.png" alt="" class="lg:w-56 lg:h-64 w-32 h-40 mb-0 animate-upDown">
-            <p class="text-2xl lg:font-semibold text-center mt-6 z-10">E-commerce Website</p>
+            <p class="text-2xl lg:font-semibold text-center mt-6 z-10 dark:text-slate-200">E-commerce Website</p>
         </div>
-        <div class="w-full lg:w-3/5 lg:border-b-4 border-b-2" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-            <img src="img/app.png" alt="" class="w-60 h-64 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg lg:font-semibold lg:text-left">
+        <div class="w-full lg:w-3/5 lg:border-b-4 dark:border-slate-600 border-b-2" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+            <img src="img/app.png" alt="" class="w-50 h-56 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg lg:font-semibold lg:text-justify text-justify dark:text-slate-300">
                 Looking to take your online business to the next level? As an experienced Fullstack Web Developer, I specialize in creating seamless and engaging eCommerce websites that drive conversions and enhance user experience. From custom features to secure payment integrations, I build robust, scalable platforms tailored to meet your business needs. Let's turn your vision into a powerful eCommerce solution!
             </p>
         </div>
     </div>
 
     <!-- Responsive Section -->
-    <div class="img-service flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 lg:px-0 lg:custom-padding" id="responsive">
-        <div class="w-full lg:w-3/5 lg:border-b-4" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+    <div class="img-service flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 lg:px-32 lg:custom-padding" id="responsive">
+        <div class="w-full lg:w-3/5 lg:border-b-4 dark:border-slate-600" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
             <img src="img/design.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg font-semibold text-center lg:text-left">
+            <p class="text-slate-700 text-lg font-semibold lg:text-justify text-justify dark:text-slate-300">
                 Ready to make your website shine on any device? As a skilled Fullstack Web Developer, I specialize in building fully responsive websites that provide a seamless user experience across desktops, tablets, and smartphones. With a focus on performance and design, I ensure your site not only looks great but functions flawlessly on every screen size. Let’s create a responsive website that keeps your audience engaged, wherever they are!
             </p>
         </div>
         <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left" data-aos-duration="1000">
             <img src="img/number4.png" alt="" class="w-60 h-64 mb-0 animate-upDown">
-            <p class="text-2xl font-semibold text-center mt-6 z-10">Responsive Website</p>
+            <p class="text-2xl font-semibold text-center mt-6 z-10 dark:text-slate-200">Responsive Website</p>
         </div>
     </div>
 
-    <div class="lg:hidden flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 lg:px-0 lg:custom-padding" id="responsive">
+    <!-- <div class="lg:hidden flex flex-col lg:flex-row items-center justify-center mx-7 lg:justify-between px-4" id="responsive">
         <div class="w-full lg:w-2/5 flex flex-col justify-center items-center mb-8 lg:mb-0 relative" data-aos="fade-left" data-aos-duration="1000">
             <img src="img/number4.png" alt="" class="w-36 h-40 mb-0 animate-upDown">
             <p class="text-2xl text-center mt-6 z-10">Responsive Website</p>
         </div>
         <div class="w-full lg:w-3/5 border-b-2" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-            <img src="img/design.png" alt="" class="w-80 h-80 mx-auto animate-upDown2">
-            <p class="text-slate-700 text-lg lg:text-left">
+            <img src="img/design.png" alt="" class="w-56 h-56 mx-auto animate-upDown2">
+            <p class="text-slate-700 text-lg lg:text-justify text-justify">
                 Ready to make your website shine on any device? As a skilled Fullstack Web Developer, I specialize in building fully responsive websites that provide a seamless user experience across desktops, tablets, and smartphones. With a focus on performance and design, I ensure your site not only looks great but functions flawlessly on every screen size. Let’s create a responsive website that keeps your audience engaged, wherever they are!
             </p>
         </div>
-    </div>
+    </div> -->
 </section>
 
 
 <!-- projects -->
-<section class="container relative custom-padding mx-auto py-16 pt-20" id="projects">
-    <h2 class="text-3xl font-semibold text-center mb-12">My <span class="text-sky-400">Projects</span></h2>
+<section class="container relative lg:custom-padding lg:px-14 mx-auto py-16 pt-20 dark:bg-slate-800" id="projects">
+    <h2 class="text-3xl font-semibold text-center mb-12 dark:text-slate-200">My <span class="text-sky-400">Projects</span></h2>
 
-    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+    <div class="lg:flex lg:flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 lg:py-8" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="lg:basis-1/2 lg:mr-10 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64" onclick="flipCard(this)">
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image --> 
                 <img src="img/company-profile.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-6">Company Profile</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">Company Profile</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">This website was created for freelance needs, where this website is company-profile, created using PHP, Javascript, Bootstrap 5</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">This website was created for freelance needs, where this website is company-profile, created using PHP, Javascript, Bootstrap 5</span>
                 <a href="https://github.com/benodwianto/capy-project" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -666,17 +499,17 @@
             </div>
         </div>
     
-        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)" >
+        <div class="basis-1/2 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64 lg:mt-0 mt-5" onclick="flipCard(this)" >
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image -->
                 <img src="img/nexus.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-6">Web Cek Motor</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">Web Cek Motor</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">This project is the final assignment of the Organizational Bootcamp, which consists of UI/UX, Backend, and Frontend. As a Back End I use Laravel, and a Front End uses React Js and Tailwind.</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">This project is the final assignment of the Organizational Bootcamp, which consists of UI/UX, Backend, and Frontend. As a Back End I use Laravel, and a Front End uses React Js and Tailwind.</span>
                 <a href="https://github.com/benodwianto/capy-project" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -694,18 +527,18 @@
         </div>
     </div>
 
-    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8 mt-16" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+    <div class="lg:flex lg:flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 lg:py-8 py-5" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="lg:basis-1/2 lg:mr-10 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64" onclick="flipCard(this)">
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image -->
                 <img src="img/distro.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-6">E-commerce</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">E-commerce</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">This is an e-commerce website created using Laravel and Bootstrap5</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">This is an e-commerce website created using Laravel and Bootstrap5</span>
                 <a href="https://github.com/benodwianto/capy-project" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -722,17 +555,17 @@
             </div>
         </div>
     
-        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+        <div class="basis-1/2 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64 lg:mt-0 mt-5" onclick="flipCard(this)">
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image -->
                 <img src="img/cx-voting.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-6">E-Voting</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">E-Voting</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">This website was created for the implementation of the Mubes (Grand Conference) or the election of the General Chair and Deputy General Chair of UKM IT Cybernetix. Created using Laravel and Tailwind.</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">This website was created for the implementation of the Mubes (Grand Conference) or the election of the General Chair and Deputy General Chair of UKM IT Cybernetix. Created using Laravel and Tailwind.</span>
                 <a href="https://github.com/benodwianto/capy-project" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -750,18 +583,18 @@
         </div>
     </div>
 
-    <div class="flex flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 py-8 mt-16" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="basis-1/2 mr-10 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+    <div class="lg:flex lg:flex-row mx-auto gradient-to-b from-sky-400 to-sky-200 lg:py-8" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="lg:basis-1/2 lg:mr-10 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64" onclick="flipCard(this)">
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image -->
                 <img src="img/portfolio.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-6">Web Portfolio</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">Web Portfolio</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">My website portfolio, build with TailwindCss</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">My website portfolio, build with TailwindCss</span>
                 <a href="https://github.com/benodwianto/portfolio" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -778,17 +611,17 @@
             </div>
         </div>
     
-        <div class="basis-1/2 flip-card group border-20 shadow-2xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto" style="width: 700px; height: 350px;" onclick="flipCard(this)">
+        <div class="basis-1/2 flip-card group border-20 lg:shadow-xl rounded-3xl transition-transform duration-700 ease-in-out mx-auto lg:w[700px] lg:h-[350px] w-[385px] h-64 lg:mt-0 mt-5" onclick="flipCard(this)">
             <!-- Front of the card -->
             <div class="card-front relative flex flex-col items-center justify-center h-full overflow-hidden">
                 <!-- Dark overlay on the image -->
                 <img src="img/landingpage.png" alt="HTML5 Logo" class="w-full h-60 object-cover">
-                <span class="text-3xl font-semibold text-slate-700 mt-4">Landing Page</span>
+                <span class="lg:text-3xl font-semibold text-slate-700 lg:mt-7 mt-4">Landing Page</span>
                 <div class="tooltip">Click to learn more!</div>
             </div>
             <!-- Back of the card -->
             <div class="card-back flex flex-col items-center justify-center h-full">
-                <span class="text-md font-semibold text-slate-700 text-center px-4">Build your own landing page</span>
+                <span class="text-md font-semibold text-slate-700 text-center px-4 dark:text-slate-300">Build your own landing page</span>
                 <a href="https://github.com/benodwianto" class="mt-4 w-max"
                           ><span>
                             <svg
@@ -808,32 +641,37 @@
      
 </section>
 
+<!-- back to top -->
+ <a href="#home" class="fixed flex items-center justify-center back-to-top bottom-4 right-4 z-[9999] rounded-full h-14 w-14 bg-slate-400 p-4 hover:animate-pulse" id="to-top">
+    <span class="mt-2 block w-5 h-5 rotate-45 border-t-2 border-l-2"></span>
+ </a>
+
 <!-- Contact -->
 <section class="container pt-20" id="contact" >   
-    <footer class="bg-slate-800 text-white py-10 filter brightness-90">
+    <footer class="bg-slate-800 dark:bg-[#0f172a] text-white py-10 filter brightness-90">
         <div class="container mx-auto px-20 mt-16" data-aos="fade-down" data-aos-duration="1000">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b">
                 <!-- Kolom Pertama: Contact -->
                 <div class="mb-8">
-                    <h2 class="text-2xl font-bold mb-4">Contact</h2>
-                    <p class="mb-2 text-md hover:text-sky-400">Email: <a href="mailto:benodwianto9@gmail.com" target="_blank">benodwianto9@gmail.com</a></p>
-                    <p class="mb-2 text-md hover:text-sky-400">Whatsapp: <a href="https://wa.me/628228379584" target="_blank">+62 082 2837 9584</a></p>
-                    <p class="text-md mb-2 hover:text-sky-400">Address: Padang, West Sumatera Indonesia</p>
+                    <h2 class="text-2xl font-bold mb-4 text-center lg:text-left">Contact</h2>
+                    <p class="mb-2 text-md hover:text-sky-400 text-center lg:text-left">Email: <a href="mailto:benodwianto9@gmail.com" target="_blank">benodwianto9@gmail.com</a></p>
+                    <p class="mb-2 text-md hover:text-sky-400 text-center lg:text-left">Whatsapp: <a href="https://wa.me/628228379584" target="_blank">+62 082 2837 9584</a></p>
+                    <p class="text-md mb-2 hover:text-sky-400 text-center lg:text-left">Address: Padang, West Sumatera Indonesia</p>
                 </div>
 
                 <!-- Kolom Kedua: About -->
                 <div class="mb-8">
-                    <h2 class="text-2xl font-bold mb-4">Services</h2>
-                    <p class="text-md hover:text-sky-400"><a href="#api">API</a></p>
-                    <p class="text-md hover:text-sky-400"><a href="#landingpage">Landing Page</a></p>
-                    <p class="text-md hover:text-sky-400"><a href="#e-commerce">E-commerce</a></p>
-                    <p class="text-md hover:text-sky-400"><a href="#responsive">Responsive</a></p>
+                    <h2 class="text-2xl font-bold mb-4 text-center lg:text-left">Services</h2>
+                    <p class="text-md hover:text-sky-400 text-center lg:text-left"><a href="#api">API</a></p>
+                    <p class="text-md hover:text-sky-400 text-center lg:text-left"><a href="#landingpage">Landing Page</a></p>
+                    <p class="text-md hover:text-sky-400 text-center lg:text-left"><a href="#e-commerce">E-commerce</a></p>
+                    <p class="text-md hover:text-sky-400 text-center lg:text-left"><a href="#responsive">Responsive</a></p>
                 </div>
 
                 <!-- Kolom Ketiga: Follow Us -->
                 <div class="mb-8">
-                    <h2 class="text-2xl font-bold mb-4">Link</h2>
-                    <ul class="flex space-x-4 mt-2">
+                    <h2 class="text-2xl font-bold mb-4 text-center lg:text-left">Link</h2>
+                    <ul class="flex space-x-4 mt-2 justify-center lg:justify-start">
                         <li><a href="#home" class="hover:text-sky-400">Home</a></li>
                         <li><a href="#about" class="hover:text-sky-400">About</a></li>
                         <li><a href="#stack" class="hover:text-sky-400">Stack</a></li>

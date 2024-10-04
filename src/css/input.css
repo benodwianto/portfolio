@@ -39,3 +39,206 @@
     display: none;
   }
 }
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+/* Animasi untuk teks berjalan horizontal */
+@keyframes runningText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.run-text-wrapper {
+  overflow: hidden; /* Memastikan teks keluar dari container tidak terlihat */
+  width: 100%;
+}
+
+.run-text {
+  white-space: nowrap; /* Membuat teks tidak terpotong */
+  display: inline-block;
+  animation: runningText 100s linear infinite;
+}
+
+.run-text-content {
+  display: inline-block;
+  padding-right: 100%; /* Menambahkan padding agar teks memiliki ruang di antara duplikasi */
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.opacity-100 {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideDown 0.5s ease forwards;
+}
+
+.opacity-0 {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideUp 0.5s ease forwards;
+}
+
+.flip-card {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg); /* Rotates the card when flipped */
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  bottom: 100%; /* Tooltip positioned above the card */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none; /* Prevent tooltip from interfering with hover */
+}
+
+.flip-card:hover .tooltip {
+  opacity: 1; /* Show tooltip on hover */
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden; /* Prevents the back face from being visible */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem; /* Rounded corners */
+}
+
+.card-back {
+  transform: rotateY(180deg); /* Rotates the back side */
+}
+
+.card-front {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+}
+
+/* Hover effect to brighten image */
+.flip-card .card-front img {
+  filter: brightness(50%);
+  transform: scale(1.2);
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.flip-card:hover .card-front img {
+  filter: brightness(100%);
+  transform: scale(1);
+}
+
+/* Keyframe animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.custom-padding {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+/* humberger menu */
+.bar {
+  transition: all 0.3s ease;
+}
+
+#hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mobile-menu {
+  display: none; /* Hidden by default */
+}
+
+/* dark mode */
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+label {
+  width: 40px;
+  height: 40px; /* Ukuran lingkaran pembungkus */
+  transition: background-color 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1);
+}
