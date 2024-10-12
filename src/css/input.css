@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  cursor: url("portofolio/public/img/swordcursor.png"), auto;
+  cursor: url("img/swordcursor.png"), auto;
 }
 
 .hamburger-line {
