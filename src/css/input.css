@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  cursor: url("file:///D:/Tailwind/portofolio/public/img/swordcursor.png"), auto;
+}
+
 .hamburger-line {
   @apply block w-[30px] h-[2px] my-2 bg-black;
 }
@@ -148,7 +152,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border-radius: 2rem; Rounded corners */
 }
 
 .card-back {
