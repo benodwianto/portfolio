@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  cursor: url("img/swordcursor.png"), auto;
+  cursor: url("https://benodwianto-portfolio.vercel.app/portfolio/public/img/swordcursor.png"),
+    auto;
 }
 
 .hamburger-line {
